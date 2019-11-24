@@ -41,8 +41,8 @@
 		{% for flower in flowers %}
 			<div class="card">
 				<div class="card-body">
-					<h3 class="card-title">{{ flower.title }}</h5>
-					<h4 class ='card-body'>{{ flower.description | truncatechars:100}}</h4>
+					<h4 class="card-title">{{ flower.title }}</h4>
+					<h5 class ='card-body'>{{ flower.description | truncatechars:100}}</h45>
 					<a href="/admin/myapp/flower/{{ flower.id }}/change/"class="card-link">Edit</a>
 					<a href="/admin/myapp/flower/{{ flower.id }}/delete/"class="card-link">Delete</a>
 				</div>
