@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+		.footer {
+			text-align: center;
+			font-size: 16px;
+			height: 60px;
+			line-height: 60px;
+		}
+		.right_shift{
+			float:right;
+			text-align: right;
+		}
+			
+	</style>
+<title>MySite</title>
+</head>
+<body>
+	<nav>
+		<form action="/" method="get" class="form-inline ">
+		<input id="q" name="q" value="{{ request.GET.q }}" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		<a href="/flower/create/">
+			<div class='right_shift'>
+				<button type="button" class="btn btn-info right_shift">Add Post</button>	
+			</div>
+			
+		</a>
+		</form>
+		
+	</nav>
+	
+	<br>
+	<br>
+	<br>
+	
+</ul>
+	<div class="card-columns">
+		{% for flower in flowers %}
+			<div class="card">
+				<div class="card-body">
+					<h3 class="card-title">{{ flower.title }}</h5>
+					<h4 class ='card-body'>{{ flower.description | truncatechars:100}}</h4>
+					<a href="/admin/myapp/flower/{{ flower.id }}/change/"class="card-link">Edit</a>
+					<a href="/admin/myapp/flower/{{ flower.id }}/delete/"class="card-link">Delete</a>
+				</div>
+			</div>
+		
+		{% endfor %}
+	</div>
+	<footer class="footer"> <!-- here -->
+<div class="container">
+<span class="text-muted">
+Base project for the <a target="_blank" href="https://en.wikipedia.org/wiki/Django_Unchained">Django Unchained - A film by Quentin Tarantino
+
+
+</span>
+</div>
+</footer>
+</body>
+</html>
